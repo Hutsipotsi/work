@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palautesivu</title>
+</head>
+<body>
+    <div id="text"><br/>
+        <form method="post" action="palaute2.php" onsubmit="return lahetaPalaute()" 
+        onreset="return tyhjennaPalaute()">
+        <pre><span style="font-family:times new romain"><textarea  name="viesti" 
+        id="viesti" cols="70" rows="10" onfocus="tarkistaMerkit()" 
+        onkeydown="tarkistaMerkit()" onkeyup="tarkistaMerkit()" onblur="tarkistaMerkit()
+        "></textarea><br/><br/><strong>Huom!</strong> Palautetekstin pituus on rajattu 
+        maksimissaan 5000 merkkiin.<br />
+        Merkkej&auml; j&auml;ljell&auml; palautteessasi: <input type="text" 
+        name="merkkejaJaljella" id="merkkejaJaljella" readonly="readonly" value="5000" 
+        maxlength="5" size="5" /><br/>
+        Nimesi:	<input type="text" name="nimi" id="nimi" size="25" maxlength="50"/><br/>
+        Puhelin:	<input type="text" name="puhelin" id="puhelin" size="25" 
+        maxlength="20"/><br/>
+        <input name="vastaus" id="vastaus" type="checkbox" value="vastataan" 
+        onchange="paivitaEmail()" /> Haluan, ett&auml; palautteeseeni <strong>vastataan</
+        strong>.<br/>
+        email:    <input  type="text"  name="email" id="email" size="25" maxlength="50" 
+        disabled="disabled" style="background: #ECE9D8"/><br/>
+        <label for="spam_esto">9 + 5 =  </label> <input type="text" name="spam_esto" 
+        id="spam_esto" size="5" maxlength="5" /> Laske t&auml;h&auml;n edell&auml; 
+        esitetyn laskutoimituksen tulos. T&auml;m&auml; kentt&auml; on olemassa 
+        roskapostin est&auml;miseksi.<br/>
+        <br/><input type="submit" value="L&auml;het&auml; palaute" name="submit" 
+        id="submit"/>	<input type="reset" value="Tyhjenn&auml; kent&auml;t" name="reset" 
+        id="reset"/></span></pre>
+        </form>
+        </div>
+        
+        
+        
+        <script type="text/javascript">/*<!--/* Palautelomakkeen skriptejä */                /* Lomakkeen tyhjennyksen varmistus. Disabloidaan tyhjennyksen jälkeen email-kenttä */
+        function tyhjennaPalaute() {
+            if (!confirm("Haluatko varmasti tyhjentää kaikki kentät?"))
+            {
+                return false
+                }    
+                document.getElementById('email').disabled = true;
+                document.getElementById('email').style.backgroundColor = "#ECE9D8";
+                }
+            /* Teksti-kentän jäljellä olevien merkkien näyttäminen */
+            function tarkistaMerkit() {
+                var maxPituus = 5000;
+                var merkkejaYhteensa = document.getElementById("viesti").value.length;
+                document.getElementById("merkkejaJaljella").value = maxPituus - merkkejaYhteensa;
+                }
+        
+/* Email-kentän näyttäminen/piilottaminen riippuen halutaanko vastausta palautteeseen */
+        
+            function paivitaEmail() {
+                if (document.getElementById('vastaus').checked == true) {
+                    document.getElementById('email').disabled = false;
+                    document.getElementById('email').style.backgroundColor = "#FFFFFF";
+                    } else {
+                        document.getElementById('email').disabled = true;
+                        document.getElementById('email').style.backgroundColor = "#ECE9D8";
+                        document.getElementById('email').value = "";
+                        }
+                    }
+/* Palautteen lähettämisen tarkastus: vaaditut kentät pitää olla oikein täytetty */
+        
+            function lahetaPalaute() {
+                /* Nimi-kentän tarkastus */
+                var nimi = document.getElementById("nimi").value;
+                if(nimi.length<2) {
+                    alert("Et antanut nimeäsi!");
+                    document.getElementById("nimi").focus();
+                    return false;
+                    }
+                    if(nimi.length>50) {
+                        alert("Nimen pituus on rajoitettu 50 merkkiin!");
+                        document.getElementById("nimi").focus();
+                        return false;
+                        }
+                        /* Teksti-kentän tarkastus */
+                        var viesti = document.getElementById("viesti").value;
+                        if(viesti.length<10) {
+                            alert("Et kirjoittanut palautteeseesi mitään tekstiä! (min. 10 merkkiä)");
+                            document.getElementById("viesti").focus();
+                            return false;
+                            }
+                        if(viesti.length>5000)
+                        {
+                            alert("Palaute-tekstin pituus on rajattu 5000 merkkiin!");
+                            document.getElementById("viesti").focus();
+                            return false;
+                        }
+                        /*Tarkastetaan, onko valittuna, että halutaan palautteeseen vastattavan*/        
+                        if(document.getElementById("vastaus").checked == true) {
+                        /* Email-kenttä pitää olla oikein täytetty, jos halutaan palautteeseen vastaus */
+                        var email=document.getElementById("email").value;
+                        if (email.length<5 || email.indexOf('@', 0) == -1 || email.indexOf('.', 0) == -1) {
+                            alert("Valitsit, että haluat palautteeseesi vastattavan, mutta et antanut sähköpostiosoitettasi tai se on virheellinen!");
+                            document.getElementById("email").focus();
+                            return false;
+                            }
+                            if (email.length>50) {
+                                alert("Sähköpostiosoitteen pituus on rajoitettu 50 merkkiin!");
+                                document.getElementById("email").focus();
+                                return false;
+                            }
+                        }                      
+                        /* Spämmieston tarkistus */
+                        var spamEsto = document.getElementById("spam_esto").value;
+                        if(spamEsto!="14") {
+                            alert("Vastasit väärin kysymykseen: 9+5 = ?");
+                            document.getElementById("spam_esto").focus();
+                            return false;
+                        }
+                    }/*-->*/</script>	
+            
+</body>
+</html>
