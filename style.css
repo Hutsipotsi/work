@@ -3,8 +3,9 @@ body {
     background-color: #4b0488c5 !important;
 }
 
-
-
+img {
+    padding: 10px;
+}
 /*div {
     padding: 10px;
 }
