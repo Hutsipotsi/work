@@ -33,8 +33,8 @@ function tyhjennaPalaute() {
         /* Nimi-kentän tarkastus */
         let nimi = document.getElementById("nimi").value;
         if(nimi.length<2) {
-            document.getElementById("popWindow").innerHTML = "Et antanut nimeäsi!";
-            ponnahdusIkkuna.show();
+            alert("Et antanut nimeäsi!");
+            document.getElementById("nimi").focus();
             return false;
             }
             if(nimi.length>50) {
@@ -79,3 +79,11 @@ function tyhjennaPalaute() {
                     return false;
                 }
             }
+            
+/*let ponnahdusIkkuna = document.getElementById('popupwindow')
+
+ponnahdusIkkuna.addEventListener('show.bs.modal', function (event) {
+  if (!data) {
+    return event.preventDefault() // stops modal from being shown
+  }
+})*/
