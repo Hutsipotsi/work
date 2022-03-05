@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.
+    min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       <link rel="stylesheet" href="style.css">
     <title>Palautesivu</title>
 </head>
 <body>
@@ -38,10 +41,10 @@
         
         
         
-        <script type="text/javascript">/*<!--/* Palautelomakkeen skriptejä */                /* Lomakkeen tyhjennyksen varmistus. Disabloidaan tyhjennyksen jälkeen email-kenttä */
+        <script type="text/javascript">/*<!--/* Palautelomakkeen skriptejä */
+        /* Lomakkeen tyhjennyksen varmistus. Disabloidaan tyhjennyksen jälkeen email-kenttä */
         function tyhjennaPalaute() {
-            if (!confirm("Haluatko varmasti tyhjentää kaikki kentät?"))
-            {
+            if (!confirm("Haluatko varmasti tyhjentää kaikki kentät?")) {
                 return false
                 }    
                 document.getElementById('email').disabled = true;
@@ -54,8 +57,7 @@
                 document.getElementById("merkkejaJaljella").value = maxPituus - merkkejaYhteensa;
                 }
         
-/* Email-kentän näyttäminen/piilottaminen riippuen halutaanko vastausta palautteeseen */
-        
+/* Email-kentän näyttäminen/piilottaminen riippuen halutaanko vastausta palautteeseen */     
             function paivitaEmail() {
                 if (document.getElementById('vastaus').checked == true) {
                     document.getElementById('email').disabled = false;
@@ -66,8 +68,7 @@
                         document.getElementById('email').value = "";
                         }
                     }
-/* Palautteen lähettämisen tarkastus: vaaditut kentät pitää olla oikein täytetty */
-        
+/* Palautteen lähettämisen tarkastus: vaaditut kentät pitää olla oikein täytetty */        
             function lahetaPalaute() {
                 /* Nimi-kentän tarkastus */
                 var nimi = document.getElementById("nimi").value;
