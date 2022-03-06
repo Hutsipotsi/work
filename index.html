@@ -5,62 +5,68 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navstyle.css">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
-    <title>Hello, world!</title>
+    <title>Home</title>
+</head>
+<body class="d-flex flex-wrap">
+     <!-- Option 1: Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/"
-                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Menu</span>
-                    </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                        id="menu">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pyorat.html" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-bicycle"></i> <span class="ms-1 d-none d-sm-inline">Pyörät</span> </a>
-                        </li>
-                        <li>
-                            <a href="palaute2.html" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-send"></i> <span class="ms-1 d-none d-sm-inline">Palaute</span></a>
-                        </li>
-                    </ul>
-                    </li>
-                    <hr>
+    <div class="navbar" style="background-color: #560BAD;">
+        <img src="/images/omalogo.png" width="60" height="60" class="d-inline-block align-top" alt="omalogo">
+        <a class="active" href="/index.html"><i class="fs-4 bi-house"></i> Koti</a>
+        <a href="/pages/pyorat.html"><i class="fs-4 bi-bicycle"></i> Pyörät</a>
+        <a href="/pages/palaute2.html"><i class="fs-4 bi-send"></i> Palaute</a>
+        <a href="#"><i class="fs-4 bi-search"></i> Search</a>
+    </div>
+    
+    <div class="container-fluid" id="ind">
+        <h1>Etusivu</h1>
+        
+        <div class="row flex-wrap" id="acc">
+            <div class="accordion" id="accordionKoulu">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Nojapyorälehti</button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionNojakki">
+                        <div class="accordion-body">
+                            <strong>Tässä on opinnoissa tehty julkaisu.</strong>
+                            <div class="embed-responsive">
+                                <object data="./documents/Nojapyoralehti.pdf" type="application/pdf" title="Nojapyoralehti" width="90%" height="800px">
+                                </object>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Opinnäytetyö
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionOppari">
+                        <div class="accordion-body"><strong>Opinnoissa tehty opinnäytetyö.</strong>
+                            <div class="embed-responsive">
+                                <object data="./documents/Opinnäytetyö.pdf" type="application/pdf" title="Opinnäytetyö" width="90%" height="800px">
+                                </object>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <h1>Etusivu</h1>
-                Content area...<br>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, sapiente quibusdam maxime laborum
-                corrupti modi non? Quis iusto temporibus iure, quaerat assumenda nostrum dolores aspernatur ut soluta
-                amet recusandae fugit.<br>
-                <object data="./documents/Nojapyoralehti.pdf" type="application/pdf" internalinstanceid="9" title="Nojapyoralehti">                 
-            </div>
         </div>
-</head>
 
-<body>
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <footer class="container-fluid py-1 mt-auto">
+        <div class="d-flex justify-content-center p-1">
+            <p class="m-0 fw-bold text-white text-center">© 2022 - Eija</p>
+        </div>
+    </footer>
 
 </body>
 
