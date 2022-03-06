@@ -1,11 +1,4 @@
 /* Palautelomakkeen skriptejä */
-// Luodaan modal ponnahdusikkuna, jota voidaan kutsua vastauksissa
-const myModal = new mdb.Modal(document.getElementById('popwindow'))
-/*const myModalEl = document.getElementById('popwindow')
-const modal = new mdb.Modal(myModalEl)
-modal.show()*/
-/*const ponnahdusIkkuna = new bootstrap.Modal(document.getElementById("popwindow"), { backdrop: "static" });*/
-
 /* Lomakkeen tyhjennyksen varmistus. Disabloidaan tyhjennyksen jälkeen email-kenttä */
 function tyhjennaPalaute() {
     if (!confirm("Haluatko varmasti tyhjentää kaikki kentät?")) {
@@ -41,7 +34,7 @@ function lahetaPalaute() {
         document.getElementById("nimi").focus();
         return false;
     }
-    modal.show()
+
     if (nimi.length > 50) {
         alert("Nimen pituus on rajoitettu 50 merkkiin!");
         document.getElementById("nimi").focus();
@@ -51,7 +44,6 @@ function lahetaPalaute() {
     let viesti = document.getElementById("viesti").value;
     if (viesti.length < 10) {
         alert("Et kirjoittanut palautteeseesi mitään tekstiä! (min. 10 merkkiä)");
-        modal.show();
         document.getElementById("viesti").focus();
         return false;
     }
@@ -72,9 +64,9 @@ function lahetaPalaute() {
         if (email.length > 50) {
             alert("Sähköpostiosoitteen pituus on rajoitettu 50 merkkiin!");
             document.getElementById("email").focus();
-            ponnahdusIkkuna.show();
             return false;
         }
+
     }
     /* Spämmieston tarkistus */
     let spamEsto = document.getElementById("spam_esto").value;
@@ -83,12 +75,8 @@ function lahetaPalaute() {
         document.getElementById("spam_esto").focus();
         return false;
     }
+    else {
+        alert("Kiitos palautteestasi")
+        return URL= 'http://127.0.0.1:5501/pages/palaute2.html'
+    }
 }
-
-/*let ponnahdusIkkuna = document.getElementById('popupwindow')
-
-ponnahdusIkkuna.addEventListener('show.bs.modal', function (event) {
-  if (!data) {
-    return event.preventDefault() // stops modal from being shown
-  }
-})*/

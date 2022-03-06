@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/navstyle.css">
+    <title>Palautesivu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <script src="/scripts/code.js" defer></script>
+    <!--Option 1: Bootstrap Bundle with Popper-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <form method="post" onsubmit="return lahetaPalaute()" onreset="return tyhjennaPalaute()">
+        <div class="navbar" style="background-color: #560BAD;">
+            <img src="/images/omalogo.png" width="60" height="60" class="d-inline-block align-top" alt="omalogo">
+            <a href="/index.html"><i class="fs-4 bi-house"></i> Koti</a>
+            <a href="./pyorat.html"><i class="fs-4 bi-bicycle"></i> Pyörät</a>
+            <a class="active" href="./palaute2.html"><i class="fs-4 bi-send"></i> Palaute</a>
+            <a href="#"><i class="fs-4 bi-search"></i> Search</a>
+        </div>
+
+        <div class="container-fluid" id="palaute">
+            <div class="row flex-nowrap">
+                <div class="rows sm-3">
+                    <h1>Palaute</h1>
+                    <div class="sm-3">
+                        <label for="viesti" class="form-label">Kirjoita palaute</label><br>
+                        <textarea class="form-group" id="viesti" cols="60" rows="4" onfocus="tarkistaMerkit()" onkeydown="tarkistaMerkit()" onkeyup="tarkistaMerkit()" onblur="tarkistaMerkit()"></textarea><br>
+                        <strong>Huom!</strong> Palautetekstin pituus on rajattu maksimissaan 5000 merkkiin.<br>
+                        <label for="merkkejaJaljella">Merkkejä jäljellä palautteessasi: </label>
+                        <input type="text" name="merkkejaJaljella" id="merkkejaJaljella" readonly="readonly" value="5000" maxlength="5" size="5"/><br>
+                    </div>
+
+                    <div class="row sm-3">
+                        <label for="nimi" class="col-sm-1 col-form-label">Nimesi: </label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="nimi">
+                        </div>
+                    </div>
+
+                    <div class="row sm-3">
+                        <label for="puhelin" class="col-sm-1 col-form-label">Puhelin</label>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control" id="puhelin">
+                        </div>
+                    </div>
+
+                    <div class="row sm-3">
+                        <div class="col-sm-10 offset-sm-1">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="vastaus" value="vastataan" onchange="paivitaEmail()">
+                                <label class="form-check-label" for="vastaus">Haluan, että palautteeseeni <strong>vastataan</strong>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row sm-3">
+                        <label for="inputEmail3" class="col-sm-1 col-form-label">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" id="email" class="form-text" disabled="disabled" style="background: #ECE9D8" class="form-text">
+                            <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+
+                    <div class="row sm-3">
+                        <label for="spam_esto" class="col-sm-1 col-form-label">9 + 5 = </label>
+                        <div class="col-sm-10"><input type="text" name="spam_esto" id="spam_esto" size="5" maxlength="5" /> Laske tähän edellä esitetyn laskutoimituksen tulos. Tämä kenttä on olemassa roskapostin estämiseksi.<br>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" value="lahetaPalaute" id="submit" class="btn btn-primary">Lähetä</button>
+
+                    <button type="reset" id="reset" value="tyhjennaPalaute" class="btn btn-primary">Tyhjennä kentät</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<footer class="container-fluid py-1 mt-auto">
+    <div class="d-flex justify-content-center p-1">
+        <p class="m-0 fw-bold text-white text-center">© 2022 - Eija</p>
+    </div>
+</footer>
+
+</body>
+
+</html>
