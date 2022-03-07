@@ -1,0 +1,50 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #754cd4ab !important;
+}
+
+#ind {
+  padding-left: 40px;
+  position: right;
+}
+
+#nojakit {
+  padding-left: 80px;
+  padding-right: 20px;
+}
+
+#palaute {
+  padding-left: 50px;
+}
+
+*[class^=col-md], .col-md {
+  border: 1px solid #423636;
+  padding: 5px;
+}
+
+*[class^=caption], .caption {
+  margin-top: 5px;
+  text-align: center;
+}
+
+*[class^=row], .sm-3 {
+  padding: 10px;
+}
+
+h1, h3, h4 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer {
+  background-color: #560BAD;
+  border-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  textarea {
+    resize: horizontal;
+  }
+}
+
+/*# sourceMappingURL=stylesass.css.map */

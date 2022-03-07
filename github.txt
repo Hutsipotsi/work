@@ -1,0 +1,4 @@
+Bootsrap work
+
+gh repo clone Hutsipotsi/work
+https://github.com/Hutsipotsi/work.git
