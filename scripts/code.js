@@ -76,7 +76,7 @@ function lahetaPalaute() {
         return false;
     }
     else {
-        alert("Kiitos palautteestasi")
-        return URL= 'http://127.0.0.1:5501/pages/palaute2.html'
+        alert("Kiitos palautteestasi");
+        return URL = './palaute2.html';
     }
 }
