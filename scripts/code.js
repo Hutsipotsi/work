@@ -4,8 +4,14 @@ function tyhjennaPalaute() {
     if (!confirm("Haluatko varmasti tyhjentää kaikki kentät?")) {
         return false
     }
+    document.getElementById('viesti').value = "";
+    document.getElementById('nimi').value = "";
+    document.getElementById('vastaus').checked = false;
+    document.getElementById('email').value = "";
     document.getElementById('email').disabled = true;
     document.getElementById('email').style.backgroundColor = "#ECE9D8";
+    document.getElementById("spam_esto").value = "";
+
 }
 /* Teksti-kentän jäljellä olevien merkkien näyttäminen */
 function tarkistaMerkit() {
@@ -77,6 +83,6 @@ function lahetaPalaute() {
     }
     else {
         alert("Kiitos palautteestasi");
-        return URL = './palaute2.html';
+        return tyhjennaPalaute();
     }
 }
