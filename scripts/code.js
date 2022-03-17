@@ -6,6 +6,7 @@ function tyhjennaPalaute() {
     }
     document.getElementById('viesti').value = "";
     document.getElementById('nimi').value = "";
+    document.getElementById('puhelin').value = "";
     document.getElementById('vastaus').checked = false;
     document.getElementById('email').value = "";
     document.getElementById('email').disabled = true;
